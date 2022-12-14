@@ -8,12 +8,12 @@ export const Expensive = (props) => {
         <div className="row">
         {
             products && products.map(item => {
-                if(item.price > 100){
+                if(item.price > 200){
                     return(
                         <PrItem 
-                    key = {item.id}
-                    pr = {item}
-                    />
+                            key = {item.id}
+                            pr = {item}
+                        />
                         
                     )
                 }

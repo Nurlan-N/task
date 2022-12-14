@@ -1,13 +1,17 @@
-import React from 'react'
+import React, { useContext } from 'react'
+import CatecoryContext from '../context/CatecoryContext'
 import PrItem from './PrItem'
+
 
 
 const PrList = (props) => {
     const data = props.pr
-   console.log(data);
+    const catecory = useContext(CatecoryContext)
+    console.log(catecory);
   return (
     <div className='container'>
-        <div className="row">
+        <div className="row ">
+            
         {
             data && data.map(item => {
                 return(

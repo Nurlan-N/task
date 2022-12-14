@@ -11,9 +11,10 @@ import axios from 'axios'
 
 
 
+
 function App() {
   const [pr,setPr] = useState([])
-
+  const [category, setCategory] = useState([])
   useEffect(() => {
     const getPr = async() => {
       const respons = await axios.get('https://fakestoreapi.com/products')
@@ -21,10 +22,19 @@ function App() {
     }
     getPr();
   }, [])
+   
+    useEffect(() => {
+        const getCategory = async () => {
+            setCategory(await axios.get('https://fakestoreapi.com/products/categories'))
+        }
+        getCategory();
+    }, [])
+
+
   return (
-    <div className="App">
+    <div className="App ">
       <BrowserRouter>
-        <Header/>
+        <Header categories = {category.data}  products ={pr}/>
         <Routes>
           <Route path='/' element={<HomePage products ={pr}/>}/>
           <Route path='/about' element={<About/>}/>

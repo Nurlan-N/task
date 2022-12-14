@@ -1,9 +1,9 @@
-import React from 'react'
 import PrList from '../components/PrList'
 
 export const HomePage = (props) => {
   return (
-    <div>
+    <div className='w-100'>
+      
             <PrList pr = {props.products}/>
     </div>
   )
