@@ -7,21 +7,15 @@ import { About } from './pages/About';
 import { Expensive } from './pages/Expensive';
 import { useState, useEffect} from 'react';
 import axios from 'axios'
+import PrList from './components/PrList';
 
 
 
 
 
 function App() {
-  const [pr,setPr] = useState([])
   const [category, setCategory] = useState([])
-  useEffect(() => {
-    const getPr = async() => {
-      const respons = await axios.get('https://fakestoreapi.com/products')
-      setPr(respons.data)
-    }
-    getPr();
-  }, [])
+
    
     useEffect(() => {
         const getCategory = async () => {
@@ -34,11 +28,12 @@ function App() {
   return (
     <div className="App ">
       <BrowserRouter>
-        <Header categories = {category.data}  products ={pr}/>
+        <Header/>
+        <PrList categories = {category.data} />
         <Routes>
-          <Route path='/' element={<HomePage products ={pr}/>}/>
+          <Route path='/' element={<HomePage />}/>
           <Route path='/about' element={<About/>}/>
-          <Route path='/expensive' element={<Expensive products ={pr} />}/>
+          <Route path='/expensive' element={<Expensive />}/>
         </Routes>
       </BrowserRouter>
     </div>
