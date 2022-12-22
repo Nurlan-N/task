@@ -12,7 +12,7 @@ export const Header = (props) => {
                     
                 </div>
           
-                <div className="col-lg-4 col-5 right mx-auto ">
+                <div className="col-lg-10 col-md-8 col-5 right mx-auto ">
                     <Link to='/about'  >About</Link>
                     <Link to='/expensive' className='mx-5' >Expensive</Link>
                 </div>
